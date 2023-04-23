@@ -26,5 +26,12 @@ En el contexto de Kubernetes, un Load Balancer es un recurso que se puede utiliz
 
 Kubernetes proporciona diferentes opciones para implementar un balanceador de carga, como un balanceador de carga de nube proporcionado por el proveedor de la nube, un balanceador de carga de tipo NodePort que utiliza puertos de nodo y una dirección IP de nodo para exponer un servicio a través de un puerto fijo, o un balanceador de carga de tipo LoadBalancer que utiliza un balanceador de carga externo.
 
-#
-### Ejemplo de Kubernetes
+# Ejemplo de Kubernetes
+
+Para realizar una práctica con Kubernetes, tuve que instalar los componentes necesarios para usar la herramienta. A pesar de que Kubernetes se basa en la nube, existe una manera de realizar clusters locales con [*minikube*](https://minikube.sigs.k8s.io/docs/start/). Además, se necesita de la herramienta de [*kubectl*](https://kubernetes.io/docs/tasks/tools/install-kubectl-windows/) para usar los comandos de Kubernetes con *minikube*.
+
+![image](https://user-images.githubusercontent.com/80866790/233870031-6d43ea8d-bd3d-42cc-9c4c-795ec1d63c1a.png)
+
+Una vez descargados e instalados ambos componentes, tienen que ser agregados al *Path* de Windows para ser utilizados.
+
+![image](https://user-images.githubusercontent.com/80866790/233870421-c366eeef-9e3d-4105-a670-6ff5019ef291.png)
