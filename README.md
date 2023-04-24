@@ -35,3 +35,54 @@ Para realizar una práctica con Kubernetes, tuve que instalar los componentes ne
 Una vez descargados e instalados ambos componentes, tienen que ser agregados al *Path* de Windows para ser utilizados.
 
 ![image](https://user-images.githubusercontent.com/80866790/233870421-c366eeef-9e3d-4105-a670-6ff5019ef291.png)
+
+Para empezar a usar Kubernetes con *minikube* se ejecuta el comando
+
+```cmd 
+minikube start
+```
+
+Entonces *minikube* empezará su proceso de configuración, creando el contenedor en *Docker* para alojar Kubernetes.
+
+![image](https://user-images.githubusercontent.com/80866790/233876412-54ac0a33-140e-45dd-9301-65067467e2d0.png)
+
+También es posible obtener una interfaz gráfica de Kubernetes usando el comando 
+
+```cmd
+minikube dashboard
+```
+
+![image](https://user-images.githubusercontent.com/80866790/233876880-6bc67d51-6ae8-489e-a500-ab1bd00c7666.png)
+
+Una vez empezado el servicio de *minkube* se necesita un proyecto contenido en *Docker* para usar Kubernetes. 
+
+Se realiza un pequeñisímo proyecto de 'Hola Mundo!' para probar la tecnología de Node.js
+
+``` js
+const express = require('express')
+const os = require('os')
+
+const app = express()
+app.get('/', (req, res) => {
+    res.send(`Hello from ${os.hostname()}!`)
+})
+
+const port = 3000
+app.listen(port, () => console.log(`listening on port ${port}`))
+```
+
+**Nota: La configuracion de WSL (Windows Subsystem for Linux), NVM, NPM y Docker ya estaba lista.**
+
+Ya con el proyecto, simplemente se tiene que crear el pod de Kubernetes con el comando: 
+
+``` cmd
+kubectl create deployment --image nachogmz/node-hello-app node-app
+```
+
+Además se pueden configurar las replicas del pod para tener como respaldo.
+
+![image](https://user-images.githubusercontent.com/80866790/233889112-3b8e4cc5-dcd0-41bf-be36-a2157327c968.png)
+
+![image](https://user-images.githubusercontent.com/80866790/233889149-30e049c0-82c7-460f-ba86-d59ded9634bc.png)
+
+Aquí se puede visualizar que el despliegue de *node-app* cuenta con 3 replicas del pod.
